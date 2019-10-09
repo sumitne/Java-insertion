@@ -1,45 +1,27 @@
-package searching;
+package DSA;
 import java.util.Scanner;
-public class Linear {
-	public static int search(int[] A,int key)
-	{
-		int n=A.length;
-		for(int i=0;i<n;i++)
-		{
-			if(A[i]==key)
-			{
+public class LinearSearch {
+	static int linear(int arr[] , int item) {
+		for(int i=0 ; i<arr.length ;i++) {
+			if(arr[i] == item) {
 				return i;
 			}
+			
 		}
-		return -1;
+			return -1;
 	}
-
-	    public static void main(String[] args) 
-	    { 
-	        int n;
-	        System.out.println("Enter the size of the array");
-	        Scanner sc=new Scanner(System.in);
-	        n=sc.nextInt();
-	        int A[]=new int[n];
-	        System.out.println("Enter the elements of the array");
-	        for(int i=0;i<n;i++)
-	        {
-	        	A[i]=sc.nextInt()
-	        			;
-	        }
-	        System.out.println("Enter the element you want to search");
-	        int key=sc.nextInt();
-	        int index= search(A,key);
-	        if(index>=0)
-	        {
-	        	System.out.println("Element "+key+" found at the index "+index);
-	        }
-	        else
-	        {
-	        	System.out.println("Element "+key+" does not exist");
-	        }
-	        sc.close();
-	        } 
-	} 
-
-
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the size of array");
+		int size = sc.nextInt();
+		int arr[] = new int[size];
+		System.out.println("Enter the elements of the array");
+		for(int i = 0; i<size; i++) {
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("Enter the element you want to search ");
+		int item = sc.nextInt();
+		int index = linear(arr,item);
+		System.out.println(index);
+	}                     // complexity is O(n) in the worst case because we have to compare max of 'n' elements.
+}
